@@ -1,25 +1,28 @@
-.create-list
+.create-list, .create-timetable
 	padding: 10px
 	border-radius: 10px
 	text-transform: lowercase
 	font-size: 16px
 	outline: none
-	box-shadow: 2px 2px 5px $menu-color
+	background: $gradient-color
+	box-shadow: 2px 2px 5px $shadow-color
 	color: $dark-font
-	
+
+.create-timetable
+	margin-left: 20px
 
 .weekly-list
 	list-style: none
-	background: $bg-color
+	background: $rose-color
 	padding: 20px 20px 10px 20px
 	width: 400px
 	border-radius: 15px
 	margin-bottom: 20px
-	box-shadow: 3px 3px 5px $menu-color
+	box-shadow: 3px 3px 5px $shadow-color
 
 .weekly-list-item
 	text-transform: lowercase
-	font-size: 20px
+	font-size: 16px
 	margin-bottom: 10px
 	display: flex
 	justify-content: space-between
@@ -29,15 +32,23 @@
 	padding: 5px 10px
 	outline: none
 	border: none
-	background: $light-font
+	
 	color: $dark-font
 	font-size: 14px
 	border-radius: 5px
 	text-transform: lowercase
-	box-shadow: 1px 1px 5px $menu-color
+	box-shadow: 1px 1px 5px $shadow-color
 
 .delete-button
 	margin-left: 10px
+
+.add-task, .save-list
+	background: $gradient-color
+
+.button-box
+	display: flex
+	justify-content: space-between
+	width: 400px
 
 .input-box
 	width: 400px
@@ -54,7 +65,7 @@
 	padding-left: 15px
 	padding-right: 15px
 	height: 27px
-	box-shadow: 1px 1px 5px $menu-color
+	box-shadow: 1px 1px 5px $shadow-color
 
 .add-task
 	width: 112px

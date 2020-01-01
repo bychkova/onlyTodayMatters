@@ -6,7 +6,7 @@
 .container {
   overflow: hidden;
   display: flex;
-  color: #e8c8bd;
+  color: #423745;
   font-family: "Montserrat Alternates", sans-serif; }
 
 button, input {
@@ -43,9 +43,9 @@ a {
   justify-content: space-between; }
 
 aside {
-  width: 200px;
-  background: #e8c8bd;
-  height: 100vh; }
+  width: 25%;
+  background: linear-gradient(to bottom, #ffdcdb, #b4c8ea);
+  min-height: 100vh; }
 
 .nav-link {
   color: #423745;
@@ -68,10 +68,10 @@ aside {
   font-size: 14px;
   border-radius: 5px;
   text-transform: lowercase;
-  box-shadow: 1px 1px 5px #8a7890; }
+  box-shadow: 1px 1px 5px #91a8d0; }
 
 main {
-  width: calc(100vw - 200px);
+  width: calc(100vw - 25%);
   padding: 50px; }
 
 h1, h2 {
@@ -84,27 +84,31 @@ h1 {
 h2 {
   margin-bottom: 50px; }
 
-.create-list {
+.create-list, .create-timetable {
   padding: 10px;
   border-radius: 10px;
   text-transform: lowercase;
   font-size: 16px;
   outline: none;
-  box-shadow: 2px 2px 5px #8a7890;
+  background: linear-gradient(to bottom, #ffdcdb, #b4c8ea);
+  box-shadow: 2px 2px 5px #91a8d0;
   color: #423745; }
+
+.create-timetable {
+  margin-left: 20px; }
 
 .weekly-list {
   list-style: none;
-  background: #ad594f;
+  background: #ffdcdb;
   padding: 20px 20px 10px 20px;
   width: 400px;
   border-radius: 15px;
   margin-bottom: 20px;
-  box-shadow: 3px 3px 5px #8a7890; }
+  box-shadow: 3px 3px 5px #91a8d0; }
 
 .weekly-list-item {
   text-transform: lowercase;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between; }
@@ -114,15 +118,22 @@ h2 {
   padding: 5px 10px;
   outline: none;
   border: none;
-  background: #e8c8bd;
   color: #423745;
   font-size: 14px;
   border-radius: 5px;
   text-transform: lowercase;
-  box-shadow: 1px 1px 5px #8a7890; }
+  box-shadow: 1px 1px 5px #91a8d0; }
 
 .delete-button {
   margin-left: 10px; }
+
+.add-task, .save-list {
+  background: linear-gradient(to bottom, #ffdcdb, #b4c8ea); }
+
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  width: 400px; }
 
 .input-box {
   width: 400px;
@@ -139,7 +150,7 @@ h2 {
   padding-left: 15px;
   padding-right: 15px;
   height: 27px;
-  box-shadow: 1px 1px 5px #8a7890; }
+  box-shadow: 1px 1px 5px #91a8d0; }
 
 .add-task {
   width: 112px;
