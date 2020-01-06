@@ -47,7 +47,8 @@ for (var i=0; i<okBtn.length; i++){
 	okBtn[i].onclick = function (event){
 		event.preventDefault();
 		this.parentElement.parentElement.classList.remove('is-active');
-		addToTimetable();
+		this.parentElement.querySelector('h4').innerHTML = 'поменять дни';
+		//addToTimetable();
 	}
 }
 //скрываем выпадающий список при клике вне элемента
@@ -58,32 +59,6 @@ for(var i=0; i<dropList.length; i++){
 		addToTimetable();
 	}
 }*/
-
-
-
-//составляем объект с парами задание-день недели
-function addToTimetable(){
-	//название задания, ключ для свойства объекта
-	var keyTask = event.target.parentElement.parentElement.parentElement.textContent.slice(2).slice(0,-68);
-	//массив из всех выбранных дней недели
-	var selectedCheckboxes = event.target.parentElement.querySelectorAll('input[type="checkbox"]:checked');
-	
-	//массив для хранения всех дней недели
-	var weekDays = [];
-	for (var i=0; i<selectedCheckboxes.length; i++){		
-		weekDays.push(selectedCheckboxes[i].value);
-	}
-	timetable[keyTask] = weekDays;
-	//меняеи заголовок
-	if (weekDays.length !=0){
-		var parent = event.target.parentElement;
-		parent.querySelector('h4').innerHTML = 'поменять дни';
-		localStorage.setItem('timetable', JSON.stringify(timetable));
-	}
-	
-	
-}
-
 
 document.querySelector('.save-timetable').onclick = function (event) {
 	
@@ -98,11 +73,33 @@ document.querySelector('.save-timetable').onclick = function (event) {
 		}
 	}
 	if (count !=1){
+		//составляем два массива: один с ключами, другой со значениями
+		var weeklyItems = document.querySelectorAll('.weekly-list-item');
+		
+		var keyTask = [];//массив ключей
+		var weekDays = [];//массив значений
+		
+		for (var i=0; i<weeklyItems.length; i++){
+			keyTask.push(weeklyItems[i].textContent.slice(2).slice(0,-67));
+			var days = [];
+			var selectedCheckboxes = weeklyItems[i].querySelectorAll('input[type="checkbox"]:checked');
+			for (var k=0; k<selectedCheckboxes.length; k++){
+				days.push(selectedCheckboxes[k].value);
+			}
+			weekDays.push(days);
+		}
+		
+		for (var i=0; i<keyTask.length; i++){
+			for (var k=0; k<weekDays.length; k++){
+				timetable[keyTask[i]] = weekDays[i];
+			}
+		}
+		console.log(timetable);
+		localStorage.setItem('timetable', JSON.stringify(timetable));
 		checkTimetable();
 	}
 }
-
-
+		
 function checkTimetable(){
 	//проверяем проставлены ли даты у заданий, т.е. есть ли объект timetable
 	if (localStorage.getItem('timetable')){
@@ -163,8 +160,7 @@ function distributeTasks(){
 		//сравниваем значение ключа с днем недели и записываем его в соответствующий массив
 
 	}
-	//console.log(mon, tue, wed, thu, fri, sat, sun)
-	
+
 	//распределяем значения из массива по дням недели в соответствующие li
 		
 	distributeToWeekDays(mon);
@@ -192,41 +188,3 @@ function distributeTasks(){
 	
 	localStorage.setItem('isDone', 'true');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
