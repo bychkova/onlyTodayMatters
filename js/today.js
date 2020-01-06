@@ -21,7 +21,7 @@ function checkTimetable(){
 
 			//распределяем задания по дням недели
 			timetable = JSON.parse(localStorage.getItem('timetable'));
-			//console.log(timetable);
+			console.log(timetable);
 
 			//создаем массивы звданий по дням недели
 			var mon = [];
@@ -34,29 +34,32 @@ function checkTimetable(){
 
 			for (var key in timetable){
 				//сравниваем значение ключа с днем недели и записываем его в соответствующий массив
-				switch(timetable[key]){
-					case 'понедельник':
-						mon.push(key);
-						break;
-					case 'вторник':
-						tue.push(key);
-						break;
-					case 'среда':
-						wed.push(key);
-						break;
-					case 'четверг':
-						thu.push(key);
-						break;
-					case 'пятница':
-						fri.push(key);
-						break;
-					case 'суббота':
-						sat.push(key);
-						break;
-					case 'воскресенье':
-						sun.push(key);
-						break;
+				for (var i=0; i<timetable[key].length; i++){
+					switch(timetable[key][i]){
+						case 'mon':
+							mon.push(key);
+							break;
+						case 'tue':
+							tue.push(key);
+							break;
+						case 'wed':
+							wed.push(key);
+							break;
+						case 'thu':
+							thu.push(key);
+							break;
+						case 'fri':
+							fri.push(key);
+							break;
+						case 'sat':
+							sat.push(key);
+							break;
+						case 'sun':
+							sun.push(key);
+							break;
+					}
 				}
+				
 			}
 			//выбираем массив в зависимости от дня недели
 			switch(weekDay.getDay()){
@@ -67,19 +70,19 @@ function checkTimetable(){
 					timetibleList(mon);
 					break;
 				case 2:
-					timetibleList(mon);
+					timetibleList(tue);
 					break;
 				case 3:
-					timetibleList(mon);
+					timetibleList(wed);
 					break;
 				case 4:
-					timetibleList(mon);
+					timetibleList(thu);
 					break;
 				case 5:
-					timetibleList(mon);
+					timetibleList(fri);
 					break;
 				case 6:
-					timetibleList(mon);
+					timetibleList(sat);
 					break;
 
 			}

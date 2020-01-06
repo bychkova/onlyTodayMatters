@@ -14,16 +14,33 @@
 		color: $dark-font
 		text-align: center
 
-.choose-day
+.form-container
 	height: 27px
+	overflow: hidden
+	background: #ffffff
+	border-radius: 5px
+	box-shadow: 1px 1px 5px $shadow-color
+	cursor: pointer
+
+.is-active
+	height: auto
+	overflow: visible
+
+.choose-day
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	height: 210px
+	background: #ffffff
 	padding: 5px 10px
-	outline: none
 	border: none
 	color: $dark-font
 	font-size: 14px
 	border-radius: 5px
 	text-transform: lowercase
 	box-shadow: 1px 1px 5px $shadow-color
+	input
+		margin-right: 5px
 
 .change-list, .save-timetable
 	padding: 10px

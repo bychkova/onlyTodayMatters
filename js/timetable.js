@@ -13,8 +13,11 @@ function checkTasks(){
 			var listItem = document.createElement('li');
 			listItem.className = 'weekly-list-item';
 			listItem.innerHTML ='&#9165; '+tasks[i];
+			var showForm = document.createElement('div');
+			showForm.className = 'form-container';
 			document.querySelector('.weekly-list').append(listItem);
-			listItem.insertAdjacentHTML('beforeend', '<select name="day-of-week" class="choose-day"><option value="понедельник">понедельник</option><option value="вторник">вторник</option><option value="среда">среда</option><option value="четверг">четверг</option><option value="пятница">пятница</option><option value="суббота">суббота</option><option value="воскресенье">воскресенье</option></select>');
+			listItem.append(showForm);
+			showForm.insertAdjacentHTML('beforeend', '<form class="choose-day"><h4 class="show-form">день недели &#9663;</h4><label><input type="checkbox" name="day-of-week" value="mon">понедельник</label><label><input type="checkbox" name="day-of-week" value="tue">вторник</label><label><input type="checkbox" name="day-of-week" value="wed">среда</label><label><input type="checkbox" name="day-of-week" value="thu">четверг</label><label><input type="checkbox" name="day-of-week" value="fri">пятница</label><label><input type="checkbox" name="day-of-week" value="sat">суббота</label><label><input type="checkbox" name="day-of-week" value="sun">воскресенье</label><input type="submit" value="ok" class="ok-btn"></form>');
 		}
 		
 		document.querySelector('.button-box').insertAdjacentHTML('beforeend', '<a href="weekly-plan.html" class="change-list">Изменить список дел</a>');
@@ -24,30 +27,81 @@ function checkTasks(){
 	}
 }
 
-document.querySelector('.save-timetable').onclick = function (event) {
-	saveTimetable(event);
-	//кнопка сохранить расписание после которой всё должно распеределиться по дням
-	//так же записывает значение селектов в объект парами таск-день недели
-}
 
-function saveTimetable(event){
-	event = event || window.event;
-	//записываем выбраный день недели в объект
-	var daysList = document.getElementsByClassName('choose-day');
-	for (var i=0; i<daysList.length; i++){
-		var keyTask = daysList[i].parentElement.textContent.slice(2).slice(0,-55);
-		var valueDay = daysList[i].value;
-		timetable[keyTask] = valueDay;
+
+//раскрываем список с днями недели
+
+var showList = document.getElementsByClassName('show-form');
+
+for (var i=0; i<showList.length; i++){
+	showList[i].onclick = function (event){
+		this.parentElement.parentElement.classList.toggle('is-active');
 		
 	}
-	localStorage.setItem('timetable', JSON.stringify(timetable));
-	document.querySelector('.weekly-list').classList.add('hide');
-	document.querySelector('.button-box').classList.add('hide');
-	document.querySelector('.weekly-timetable').classList.remove('hide');
+}
+
+//нажатие на кнопку ок просто убирает класс active
+var okBtn = document.getElementsByClassName('ok-btn');
+
+for (var i=0; i<okBtn.length; i++){
+	okBtn[i].onclick = function (event){
+		event.preventDefault();
+		this.parentElement.parentElement.classList.remove('is-active');
+		addToTimetable();
+	}
+}
+//скрываем выпадающий список при клике вне элемента
+/*var dropList = document.getElementsByClassName('form-container');
+for(var i=0; i<dropList.length; i++){
+	dropList[i].onmouseup = function(){
+		this.classList.remove('is-active');
+		addToTimetable();
+	}
+}*/
+
+
+
+//составляем объект с парами задание-день недели
+function addToTimetable(){
+	//название задания, ключ для свойства объекта
+	var keyTask = event.target.parentElement.parentElement.parentElement.textContent.slice(2).slice(0,-68);
+	//массив из всех выбранных дней недели
+	var selectedCheckboxes = event.target.parentElement.querySelectorAll('input[type="checkbox"]:checked');
 	
-	checkTimetable();
+	//массив для хранения всех дней недели
+	var weekDays = [];
+	for (var i=0; i<selectedCheckboxes.length; i++){		
+		weekDays.push(selectedCheckboxes[i].value);
+	}
+	timetable[keyTask] = weekDays;
+	//меняеи заголовок
+	if (weekDays.length !=0){
+		var parent = event.target.parentElement;
+		parent.querySelector('h4').innerHTML = 'поменять дни';
+		localStorage.setItem('timetable', JSON.stringify(timetable));
+	}
+	
 	
 }
+
+
+document.querySelector('.save-timetable').onclick = function (event) {
+	
+	//проверяем, у всех ли заданий проставлены дни недели
+	var checkTitles = document.querySelectorAll('h4');
+	var count = 0;
+	for (var i=0; i<checkTitles.length; i++){
+		if (checkTitles[i].innerHTML.slice(0,4) == 'день'){
+			console.log('no');
+			count = 1;
+			break;
+		}
+	}
+	if (count !=1){
+		checkTimetable();
+	}
+}
+
 
 function checkTimetable(){
 	//проверяем проставлены ли даты у заданий, т.е. есть ли объект timetable
@@ -75,33 +129,39 @@ function distributeTasks(){
 	var sun = ['sun'];
 	
 	for (var key in timetable){
-		//console.log(key);
-		//console.log(timetable[key]);
+		console.log(key);
+		console.log(timetable[key]);
+		//сравниваем значение ключа с днем недели и записываем его в соответствующий массив
+
+		
+		for (var i=0; i<timetable[key].length; i++){
+			switch(timetable[key][i]){
+				case 'mon':
+					mon.push(key);
+					break;
+				case 'tue':
+					tue.push(key);
+					break;
+				case 'wed':
+					wed.push(key);
+					break;
+				case 'thu':
+					thu.push(key);
+					break;
+				case 'fri':
+					fri.push(key);
+					break;
+				case 'sat':
+					sat.push(key);
+					break;
+				case 'sun':
+					sun.push(key);
+					break;
+			}
+		}
 		
 		//сравниваем значение ключа с днем недели и записываем его в соответствующий массив
-		switch(timetable[key]){
-			case 'понедельник':
-				mon.push(key);
-				break;
-			case 'вторник':
-				tue.push(key);
-				break;
-			case 'среда':
-				wed.push(key);
-				break;
-			case 'четверг':
-				thu.push(key);
-				break;
-			case 'пятница':
-				fri.push(key);
-				break;
-			case 'суббота':
-				sat.push(key);
-				break;
-			case 'воскресенье':
-				sun.push(key);
-				break;
-		}
+
 	}
 	//console.log(mon, tue, wed, thu, fri, sat, sun)
 	
@@ -131,7 +191,6 @@ function distributeTasks(){
 	}
 	
 	localStorage.setItem('isDone', 'true');
-
 }
 
 
