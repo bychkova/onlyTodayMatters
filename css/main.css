@@ -15,37 +15,11 @@ button, input {
 a {
   text-decoration: none; }
 
-.hide {
-  display: none; }
-
-.show {
-  display: block; }
-
-.layout-section {
-  width: 100%;
-  overflow: hidden;
-  min-height: 600px; }
-
-.layout-center {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-
-.layout-flex__column {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
-
-.layout-flex__row {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; }
-
 aside {
   width: 25%;
   background: linear-gradient(to bottom, #ffdcdb, #b4c8ea);
-  min-height: 100vh; }
+  height: 100vh;
+  position: fixed; }
 
 .nav-link {
   color: #423745;
@@ -60,19 +34,20 @@ aside {
 .create-plan {
   display: inline-block;
   margin-top: 50px;
-  height: 27px;
-  padding: 5px 10px;
-  outline: none;
-  border: none;
-  color: #423745;
-  font-size: 14px;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 10px;
   text-transform: lowercase;
-  box-shadow: 1px 1px 5px #91a8d0; }
+  font-size: 16px;
+  outline: none;
+  background: linear-gradient(to bottom, #ffdcdb, #b4c8ea);
+  box-shadow: 2px 2px 5px #91a8d0;
+  color: #423745;
+  text-align: center; }
 
 main {
   width: calc(100vw - 25%);
-  padding: 50px; }
+  padding: 50px;
+  margin-left: 25%; }
 
 h1, h2 {
   text-align: center;
@@ -84,7 +59,12 @@ h1 {
 h2 {
   margin-bottom: 50px; }
 
-.create-list, .create-timetable {
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  width: 400px; }
+
+.create-list, .create-timetable, .show-timetable {
   padding: 10px;
   border-radius: 10px;
   text-transform: lowercase;
@@ -92,11 +72,11 @@ h2 {
   outline: none;
   background: linear-gradient(to bottom, #ffdcdb, #b4c8ea);
   box-shadow: 2px 2px 5px #91a8d0;
-  color: #423745; }
+  color: #423745;
+  text-align: center; }
 
-.create-timetable {
-  margin-left: 20px; }
-
+/*.create-timetable
+	margin-left: 20px*/
 .weekly-list {
   list-style: none;
   background: #ffdcdb;
@@ -130,11 +110,6 @@ h2 {
 .add-task, .save-list {
   background: linear-gradient(to bottom, #ffdcdb, #b4c8ea); }
 
-.button-box {
-  display: flex;
-  justify-content: space-between;
-  width: 400px; }
-
 .input-box {
   width: 400px;
   display: flex;
@@ -155,3 +130,83 @@ h2 {
 .add-task {
   width: 112px;
   text-align: center; }
+
+.banner {
+  text-align: center; }
+  .banner p {
+    margin-bottom: 50px; }
+  .banner a {
+    padding: 10px;
+    border-radius: 10px;
+    text-transform: lowercase;
+    font-size: 16px;
+    outline: none;
+    background: linear-gradient(to bottom, #ffdcdb, #b4c8ea);
+    box-shadow: 2px 2px 5px #91a8d0;
+    color: #423745;
+    text-align: center; }
+
+.choose-day {
+  height: 27px;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  color: #423745;
+  font-size: 14px;
+  border-radius: 5px;
+  text-transform: lowercase;
+  box-shadow: 1px 1px 5px #91a8d0; }
+
+.change-list, .save-timetable {
+  padding: 10px;
+  border-radius: 10px;
+  text-transform: lowercase;
+  font-size: 16px;
+  outline: none;
+  background: linear-gradient(to bottom, #ffdcdb, #b4c8ea);
+  box-shadow: 2px 2px 5px #91a8d0;
+  color: #423745;
+  text-align: center; }
+
+.weekly-timetable {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
+.weekly-timetable-item {
+  width: 250px;
+  min-height: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(to bottom, #ffdcdb, #b4c8ea);
+  box-shadow: 2px 2px 5px #91a8d0;
+  color: #423745;
+  text-align: center;
+  border-radius: 10px; }
+
+.layout-section {
+  width: 100%;
+  overflow: hidden;
+  min-height: 600px; }
+
+.layout-center {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.layout-flex__column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.layout-flex__row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.hide {
+  display: none; }
+
+ul {
+  list-style: none; }
