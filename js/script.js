@@ -17,6 +17,3 @@ if (weekDay === 0){
 		setTimeout("resetBanner.classList.add('hide')", 3000);
 	}
 }
-
-
-

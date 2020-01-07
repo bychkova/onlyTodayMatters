@@ -14,8 +14,7 @@ function checkTasks(){
 			listItem.innerHTML ='&#9165; '+tasks[i];
 			document.querySelector('.weekly-list').append(listItem);
 			var deleteButton = document.createElement('button');
-			deleteButton.className = 'delete-button';
-			deleteButton.className = 'white-btn';
+			deleteButton.className = 'delete-button white-btn';
 			deleteButton.innerHTML = 'Удалить';
 			listItem.append(deleteButton);
 		}
@@ -99,8 +98,7 @@ function checkWeekTimetible(){
 				console.log(tasks);
 				localStorage.setItem('tasks', JSON.stringify(tasks));
 				var deleteButton = document.createElement('button');
-				deleteButton.className = 'delete-button';
-				deleteButton.className = 'white-btn';
+				deleteButton.className = 'delete-button white-btn';
 				deleteButton.innerHTML = 'Удалить';
 				listItem.append(deleteButton);
 				input.value = '';

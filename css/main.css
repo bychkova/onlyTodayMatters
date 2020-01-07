@@ -183,10 +183,14 @@ main {
 .banner {
   text-align: center; }
   .banner p {
-    margin-bottom: 50px; }
+    margin-bottom: 50px;
+    font-size: 26px; }
 
 .project-description {
   margin-bottom: 20px; }
+  .project-description p {
+    font-size: 26px;
+    margin-bottom: 10px; }
 
 aside {
   width: 285px;
