@@ -20,8 +20,8 @@ function checkTasks(){
 			showForm.insertAdjacentHTML('beforeend', '<form class="choose-day"><h4 class="show-form">день недели &#9663;</h4><label><input type="checkbox" name="day-of-week" value="mon">понедельник</label><label><input type="checkbox" name="day-of-week" value="tue">вторник</label><label><input type="checkbox" name="day-of-week" value="wed">среда</label><label><input type="checkbox" name="day-of-week" value="thu">четверг</label><label><input type="checkbox" name="day-of-week" value="fri">пятница</label><label><input type="checkbox" name="day-of-week" value="sat">суббота</label><label><input type="checkbox" name="day-of-week" value="sun">воскресенье</label><input type="submit" value="ok" class="ok-btn"></form>');
 		}
 		
-		document.querySelector('.button-box').insertAdjacentHTML('beforeend', '<a href="weekly-plan.html" class="change-list">Изменить список дел</a>');
-		document.querySelector('.button-box').insertAdjacentHTML('beforeend', '<button href="weekly-plan.html" class="save-timetable">Сохранить</button>');
+		document.querySelector('.button-box').insertAdjacentHTML('beforeend', '<a href="weekly-plan.html" class="change-list color-btn">Изменить список дел</a>');
+		document.querySelector('.button-box').insertAdjacentHTML('beforeend', '<button href="weekly-plan.html" class="save-timetable color-btn">Сохранить</button>');
 	}else{
 		document.querySelector('.banner.no-list').classList.remove('hide');
 	}
@@ -48,17 +48,8 @@ for (var i=0; i<okBtn.length; i++){
 		event.preventDefault();
 		this.parentElement.parentElement.classList.remove('is-active');
 		this.parentElement.querySelector('h4').innerHTML = 'поменять дни';
-		//addToTimetable();
 	}
 }
-//скрываем выпадающий список при клике вне элемента
-/*var dropList = document.getElementsByClassName('form-container');
-for(var i=0; i<dropList.length; i++){
-	dropList[i].onmouseup = function(){
-		this.classList.remove('is-active');
-		addToTimetable();
-	}
-}*/
 
 document.querySelector('.save-timetable').onclick = function (event) {
 	

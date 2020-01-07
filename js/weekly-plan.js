@@ -15,11 +15,12 @@ function checkTasks(){
 			document.querySelector('.weekly-list').append(listItem);
 			var deleteButton = document.createElement('button');
 			deleteButton.className = 'delete-button';
+			deleteButton.className = 'white-btn';
 			deleteButton.innerHTML = 'Удалить';
 			listItem.append(deleteButton);
 		}
 		
-		document.querySelector('.button-box').insertAdjacentHTML('beforeend', '<a href="timetable.html" class="create-timetable">Составить расписание</a>');
+		document.querySelector('.button-box').insertAdjacentHTML('beforeend', '<a href="timetable.html" class="create-timetable color-btn">Составить расписание</a>');
 		
 		deleteTask();
 		
@@ -62,8 +63,8 @@ function checkWeekTimetible(){
 			//вывод input для пользовательского ввода
 			menu.append(input);
 			input.className = 'new-task';
-			menu.insertAdjacentHTML('beforeend', '<button class="add-task">Сделаю это</button>');
-			menu.insertAdjacentHTML('beforeend', '<button class="save-list">Хватит</button>');
+			menu.insertAdjacentHTML('beforeend', '<button class="add-task color-btn-narrow">Сделаю это</button>');
+			menu.insertAdjacentHTML('beforeend', '<button class="save-list color-btn-narrow">Хватит</button>');
 			document.querySelector('.create-list').classList.add('hide');
 			input.focus();
 		}
@@ -99,6 +100,7 @@ function checkWeekTimetible(){
 				localStorage.setItem('tasks', JSON.stringify(tasks));
 				var deleteButton = document.createElement('button');
 				deleteButton.className = 'delete-button';
+				deleteButton.className = 'white-btn';
 				deleteButton.innerHTML = 'Удалить';
 				listItem.append(deleteButton);
 				input.value = '';
@@ -118,7 +120,7 @@ function checkWeekTimetible(){
 					document.querySelector('.add-task').remove();
 					document.querySelector('.save-list').remove();
 					document.querySelector('.create-list').classList.remove('hide');
-					document.querySelector('.button-box').insertAdjacentHTML('beforeend', '<a href="timetable.html" class="create-timetable">Составить расписание</a>');
+					document.querySelector('.button-box').insertAdjacentHTML('beforeend', '<a href="timetable.html" class="create-timetable color-btn">Составить расписание</a>');
 				}else{
 					input.remove();
 					document.querySelector('.add-task').remove();

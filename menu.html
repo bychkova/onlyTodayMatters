@@ -4,19 +4,21 @@
 	<meta charset="UTF-8">
 	<title>Сегодня</title>
 	<link rel="stylesheet" href="css/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
 	<link rel="shortcut icon" type="image/ico" href="img/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/450e47c036.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
 		<aside>
-			<nav class="main-nav layout-flex__row">
-				<a href="pages/weekly-plan.html" class="nav-link">Недельный план</a>
-				<a href="pages/timetable.html" class="nav-link">Расписание</a>
-				<a href="pages/today.html" class="nav-link">Сегодня</a>
-				<!--<a href="#" class="nav-link">Настройки</a>-->
-				<a href="menu.html" class="nav-link">Помощь</a>
+			<nav class="main-nav">
+				<a href="pages/weekly-plan.html" class="nav-link"><i class="fas fa-list-ul"></i>Недельный план</a>
+				<a href="pages/timetable.html" class="nav-link"><i class="far fa-calendar-alt"></i>Расписание</a>
+				<a href="pages/today.html" class="nav-link"><i class="far fa-calendar-check"></i>Сегодня</a>
+				<a href="pages/weekly-plan.html" class="nav-link reset">
+				<i class="fas fa-redo-alt"></i>Изменить список дел</a>
+				<a href="menu.html" class="nav-link"><i class="fas fa-hands-helping"></i>Помощь</a>
 			</nav>
 		</aside>
 		<main>
@@ -24,9 +26,13 @@
 			<p class="project-description">
 				Тут должно быть описание проекта, которое я ещё не придумала, а точнее не довела до читаемого состояния.
 			</p>
-			<a href="pages/weekly-plan.html" class="create-plan">Создать список</a>
+			<a href="pages/weekly-plan.html" class="create-plan color-btn">Создать список</a>
+			<div class="reset-banner hide">
+				<p>список дел можно изменить только в воскресенье</p>
+				<p> ╮(︶︿︶)╭ </p>
+			</div>
 		</main>
 	</div>
-	<!--<script src="js/script.js"></script>-->
+	<script src="js/script.js"></script>
 </body>
 </html>

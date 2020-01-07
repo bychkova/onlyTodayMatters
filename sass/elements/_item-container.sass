@@ -1,0 +1,102 @@
+//контейнер для кнопок
+.button-box
+	display: flex
+	justify-content: space-between
+	width: 400px
+
+//контейнер для инпута
+.input-box
+	width: 400px
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+
+//стиль инпута
+.new-task
+	outline: none
+	border: 1px solid $menu-color
+	border-radius: 5px
+	width: 270px
+	margin-bottom: 10px
+	padding-left: 15px
+	padding-right: 15px
+	height: 35px
+	box-shadow: 1px 1px 5px $shadow-color
+	font-family: $font
+	font-size: 22px
+
+//контейнер для списка заданий на неделю
+.weekly-list
+	list-style: none
+	background: $rose-color
+	padding: 20px 20px 10px 20px
+	width: 400px
+	border-radius: 15px
+	margin-bottom: 20px
+	box-shadow: 3px 2px 9px $shadow-color
+
+//стиль заданий
+.weekly-list-item
+	text-transform: lowercase
+	font-size: 22px
+	margin-bottom: 10px
+	display: flex
+	justify-content: space-between
+
+//контейнер для формы
+.form-container
+	height: 35px
+	overflow: hidden
+	background: #ffffff
+	border-radius: 5px
+	box-shadow: 1px 1px 5px $shadow-color
+	cursor: pointer
+
+//контейнер для формы в активном состоянии 
+.is-active
+	height: auto
+	overflow: visible
+
+//выпадающий список с чекбоксами
+.choose-day
+	min-width: 121px
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	background: $gradient-color
+	padding: 5px 10px
+	border: none
+	color: $dark-font
+	font-size: 22px
+	border-radius: 5px
+	text-transform: lowercase
+	box-shadow: 1px 1px 5px $shadow-color
+	input
+		margin-right: 5px
+		border: none
+		outline: none
+	label
+		margin-bottom: 5px
+
+//контейнер для списка заданий по дням
+.weekly-timetable
+	display: flex
+	justify-content: flex-start
+	flex-wrap: wrap
+
+//стиль элементов списка по дням
+.weekly-timetable-item
+	width: 200px
+	min-height: 200px
+	margin: 10px
+	//margin-bottom: 10px
+	background: $rose-color
+	box-shadow: 3px 2px 9px $shadow-color
+	color: $dark-font
+	border-radius: 10px
+	padding: 10px
+	font-size: 22px
+	h3
+		font-size: 26px
+		margin-bottom: 10px
+		text-align: center

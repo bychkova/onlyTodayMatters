@@ -4,41 +4,42 @@
 	<meta charset="UTF-8">
 	<title>Сегодня</title>
 	<link rel="stylesheet" href="../css/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
 	<link rel="shortcut icon" type="image/ico" href="../img/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/450e47c036.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
 		<aside>
-			<nav class="main-nav layout-flex__row">
-				<a href="weekly-plan.html" class="nav-link">Недельный план</a>
-				<a href="timetable.html" class="nav-link">Расписание</a>
-				<a href="today.html" class="nav-link">Сегодня</a>
-				<!--<a href="#" class="nav-link">Настройки</a>-->
-				<a href="../menu.html" class="nav-link">Помощь</a>
+			<nav class="main-nav">
+				<a href="weekly-plan.html" class="nav-link"><i class="fas fa-list-ul"></i>Недельный план</a>
+				<a href="timetable.html" class="nav-link"><i class="far fa-calendar-alt"></i>Расписание</a>
+				<a href="today.html" class="nav-link"><i class="far fa-calendar-check"></i>Сегодня</a>
+				<a href="weekly-plan.html" class="nav-link reset">
+				<i class="fas fa-redo-alt"></i>Изменить список дел</a>
+				<a href="../menu.html" class="nav-link"><i class="fas fa-hands-helping"></i>Помощь</a>
 			</nav>
 		</aside>
 		<main>
 			<h1>Только сегодняшний день важен</h1>
 			<h2>Создайте список дел, которые вы делаете регулярно</h2>
 			<ul class="weekly-list hide">
-				<!--<li class="weekly-list-item">&#9165; Something<button class="delete-button">Удалить</button></li>
-				<li class="weekly-list-item">&#9165; Something some thing<button class="delete-button">Удалить</button></li>-->
 			</ul>
 			<div class="button-box">
-				<button class="create-list">Добавить</button>
+				<button class="create-list color-btn">Добавить</button>
 			</div>
-			<a href="today.html" class="show-timetable hide">Сегодня</a>
+			<a href="today.html" class="show-timetable color-btn hide">Сегодня</a>
 			
 			<div class="input-box">
-				<!--<input class="new-task">
-				<button class="add-task">Сделаю это</button>
-				<button class="save-list">Хватит</button>-->
+			</div>
+			<div class="reset-banner hide">
+				<p>список дел можно изменить только в воскресенье</p>
+				<p> ╮(︶︿︶)╭ </p>
 			</div>
 		</main>
 	</div>
 	<script src="../js/weekly-plan.js"></script>
-	<!--<script src="../js/weekList.js"></script>-->
+	<script src="../js/script.js"></script>
 </body>
 </html>
